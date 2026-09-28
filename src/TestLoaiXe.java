@@ -15,8 +15,8 @@ public class TestLoaiXe {
             Statement stmt = conn.createStatement();
 
             String sql = """
-                    SELECT MA_LOAI_XE, TEN_LOAI_XE, MO_TA
-                    FROM LOAI_XE
+                    SELECT EMPLOYEE_ID, FULL_NAME, PHONE, POSITION
+                    FROM EMPLOYEE
                     """;
 
             ResultSet rs = stmt.executeQuery(sql);
@@ -24,9 +24,9 @@ public class TestLoaiXe {
             while (rs.next()) {
 
                 System.out.println(
-                        rs.getInt("MA_LOAI_XE") + " | "
-                                + rs.getString("TEN_LOAI_XE") + " | "
-                                + rs.getString("MO_TA"));
+                        rs.getInt("EMPLOYEE_ID") + " | "
+                                + rs.getString("FULL_NAME") + " | "
+                                + rs.getString("POSITION"));
             }
 
             rs.close();
