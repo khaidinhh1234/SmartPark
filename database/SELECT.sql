@@ -1,0 +1,36 @@
+-- Kiểm tra 13 bảng
+SELECT TABLE_NAME
+FROM USER_TABLES
+ORDER BY TABLE_NAME;
+
+-- Kiểm tra loại phương tiện
+SELECT *
+FROM VEHICLE_TYPE;
+
+-- Kiểm tra khu vực và loại xe
+SELECT
+    a.AREA_NAME,
+    vt.TYPE_NAME
+FROM PARKING_AREA a
+JOIN VEHICLE_TYPE vt
+    ON a.VEHICLE_TYPE_ID = vt.VEHICLE_TYPE_ID;
+
+-- Kiểm tra vị trí đỗ
+SELECT
+    a.AREA_NAME,
+    s.SLOT_CODE,
+    s.STATUS
+FROM PARKING_SLOT s
+JOIN PARKING_AREA a
+    ON s.AREA_ID = a.AREA_ID;
+
+-- Kiểm tra phương tiện
+SELECT
+    v.LICENSE_PLATE,
+    c.FULL_NAME,
+    vt.TYPE_NAME
+FROM VEHICLE v
+JOIN CUSTOMER c
+    ON v.CUSTOMER_ID = c.CUSTOMER_ID
+JOIN VEHICLE_TYPE vt
+    ON v.VEHICLE_TYPE_ID = vt.VEHICLE_TYPE_ID;
